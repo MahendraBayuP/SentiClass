@@ -9,9 +9,17 @@ from nltk.corpus import stopwords
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Pastikan NLTK stopwords & tokenizer tersedia
-nltk.download('punkt')
-nltk.download('stopwords')
+# Tentukan path untuk menyimpan data NLTK di Streamlit Cloud
+NLTK_PATH = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(NLTK_PATH):
+    os.makedirs(NLTK_PATH)
+
+# Atur direktori penyimpanan NLTK secara manual
+nltk.data.path.append(NLTK_PATH)
+
+# Pastikan model tokenizer tersedia
+nltk.download('punkt', download_dir=NLTK_PATH)
+nltk.download('stopwords', download_dir=NLTK_PATH)
 
 # Fungsi untuk case folding
 def case_folding(text):
