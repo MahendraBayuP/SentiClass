@@ -103,7 +103,7 @@ def predict_sentiment(text, model_choice, slang_file):
 
 # Streamlit UI
 st.title("💬 Aplikasi Prediksi Sentimen")
-st.markdown("**Masukkan teks dan pilih model untuk menganalisis sentimen.**")
+st.markdown("**Masukkan teks dan pilih model untuk melakukan prediksi sentimen.**")
 
 # Pilihan model
 model_choice = st.selectbox("📌 Pilih Model", ["SVM", "LR", "RF"], index=0)
