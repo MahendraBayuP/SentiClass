@@ -9,15 +9,15 @@ from nltk.corpus import stopwords
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Tentukan path untuk menyimpan data NLTK di Streamlit Cloud
+# Tentukan path penyimpanan NLTK di Streamlit Cloud
 NLTK_PATH = os.path.join(os.getcwd(), "nltk_data")
 if not os.path.exists(NLTK_PATH):
     os.makedirs(NLTK_PATH)
 
-# Atur direktori penyimpanan NLTK secara manual
+# Atur direktori penyimpanan secara manual
 nltk.data.path.append(NLTK_PATH)
 
-# Pastikan model tokenizer tersedia
+# Download model yang diperlukan
 nltk.download('punkt', download_dir=NLTK_PATH)
 nltk.download('stopwords', download_dir=NLTK_PATH)
 
