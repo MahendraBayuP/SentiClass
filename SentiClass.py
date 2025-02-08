@@ -21,7 +21,7 @@ nltk.data.path.append(NLTK_PATH)
 nltk.download('punkt', download_dir=NLTK_PATH)
 nltk.download('stopwords', download_dir=NLTK_PATH)
 
-st.set_page_config(page_title="SentiClass", page_icon="📊", layout="centered")
+st.set_page_config(page_title="Aplikasi Prediksi Sentimen", page_icon="💬", layout="centered")
 
 # Fungsi untuk case folding
 def case_folding(text):
@@ -115,9 +115,14 @@ input_text = st.text_area("📝 Masukkan teks untuk analisis sentimen")
 slang_file = "fix_slangword.txt"
 
 # Tombol prediksi
-if st.button("🔎 Prediksi Sentimen"):
+if st.button("🚀 Prediksi Sentimen"):
     if input_text.strip():
         sentiment = predict_sentiment(input_text, model_choice, slang_file)
-        st.success(f"✅ **Prediksi Sentimen:** {sentiment}")
+        if sentiment == 'Positive':
+            st.success(f"😁 **Prediksi Sentimen:** {sentiment}")
+        elif sentiment == 'Negative':
+            st.error(f"😡 **Prediksi Sentimen:** {sentiment}")
+        else:
+            st.warning(f"😐 **Prediksi Sentimen:** {sentiment}")
     else:
         st.warning("⚠️ Masukkan teks terlebih dahulu!")
