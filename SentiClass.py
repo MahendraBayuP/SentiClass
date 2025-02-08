@@ -102,14 +102,14 @@ def predict_sentiment(text, model_choice, slang_file):
     return prediction[0]
 
 # Streamlit UI
-st.title("💬 Aplikasi Prediksi Sentimen")
-st.markdown("**Masukkan teks dan pilih model untuk melakukan prediksi sentimen.**")
+st.title("💬 Aplikasi Klasifikasi Sentimen")
+st.markdown("**Pilih model dan masukkan teks untuk melakukan prediksi sentimen.**")
 
 # Pilihan model
 model_choice = st.selectbox("📌 Pilih Model", ["SVM", "LR", "RF"], index=0)
 
 # Input teks
-input_text = st.text_area("📝 Masukkan teks untuk analisis sentimen")
+input_text = st.text_area("📝 Masukkan teks untuk prediksi sentimen")
 
 # File slang word (pastikan tersedia di direktori)
 slang_file = "fix_slangword.txt"
